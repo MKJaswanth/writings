@@ -1,0 +1,53 @@
+h3.about{
+    right: 20px;
+    top:20px;
+    cursor: pointer;
+    position: absolute;
+    border-color:aqua;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color:black;
+    background-color: azure;
+    border: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+h3.about:hover{
+    background-color: blueviolet;
+}
+h3.about:focus{
+    outline: 2px solid #ffcc00;
+
+}
+div.poem1{
+    position:absolute;
+    top:100px;
+    background-color: blanchedalmond;
+    right: 10% auto;
+    left :10% auto;
+    border-radius: 8px;
+    text-align:justify;
+    color: rgb(89, 149, 240);
+    text-decoration: solid;
+    text-size-adjust: 5px;
+    width:70vh ;
+    height:55vh;
+}
+button.heart{
+    background-color: rgb(129, 221, 190);
+    color: rgb(20, 19, 19);
+    border-radius: 5px;
+    border: none;
+    display: flex;
+}
+button.heart:hover{
+    background-color: rgb(136, 195, 230); 
+}
+button.cmt{
+    background-color: rgb(226, 109, 125);
+    position: inherit;
+    display: flex;
+}

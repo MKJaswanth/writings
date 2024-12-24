@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3 class="about" onclick="alert('clicked')">About</h3>
+    <div class="poem1"><pre>
+        Hurts the one who loves you through pain
+        and despair;
+        Left me wandering,like a traveler
+        stripped bare.
+        Dreams once shared, now scattered and 
+        torn;
+        A path of regret where love was sworn.
+
+        How can I hate you when its me I 
+        despise,
+        for the hurt i Caused, for the endless
+        lies?
+        Too close to hold,yet too far to reach,
+        A lesson of love that time cannot teach.
+
+        Through the distance grows and the pain 
+        feels near;
+        I drown in silence, bound by fear.
+        if our love is a curse,then let me fall,
+        for in your gaze, I've lost it all
+        </pre>
+        <div class="likes">
+            <button class="heart" onclick="toggleLike(this)">
+            <span class="like">❤️</span>Like
+            </button>
+        </div>
+        <div class="comments">
+            <button class="cmt" onclick="addComment()">
+                Comment
+            </button>
+        </div>
+    </div>
+<script>
+    function toggleLike(button){
+        button.classList.toggle("liked");
+
+        if (button.classList.contains("liked")){
+            button.querySelector(".like").textContent = "❤️";
+
+        } else {
+            button.querySelector(".like").textContent = "🤍";
+        }
+    }
+</script>
+</body>
+</html>
