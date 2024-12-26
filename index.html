@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h3 class="about" onclick="alert('clicked')">About</h3>
-    <div class="poem1"><pre>
+    <div class="poem1"><pre class="poem">
         Hurts the one who loves you through pain
         and despair;
         Left me wandering,like a traveler
@@ -34,6 +34,11 @@
             <button class="heart" onclick="toggleLike(this)">
             <span class="like">❤️</span>Like
             </button>
+            <div class="copy">
+            <button class="copy-btn">
+                <span class="copy-icon bx bx-copy">copy</span>
+            </button>
+            </div>
         </div>
         <div class="comments">
             <button class="cmt" onclick="addComment()">
@@ -52,6 +57,16 @@
             button.querySelector(".like").textContent = "🤍";
         }
     }
+    document.querySelector(".copy-btn").addEventListener("click", ()=>{
+        const poem  = document.querySelector(".poem");
+        navigator.clipboard.writeText(poem.textContent).then(()=>{
+            alert("copied");
+        }).catch(err => {
+                console.error("Failed to copy text: ", err);
+            });
+
+    });
+    
 </script>
 </body>
-</html>
+</html> 
