@@ -51,3 +51,18 @@ button.cmt{
     position: inherit;
     display: flex;
 }
+.copy{
+    display: flex;
+    .copy-btn{
+        background-color: salmon;
+        border-radius: 10px;
+        border: none;
+        display: flex;
+        cursor: pointer;
+        padding: 1px 5px;
+        margin: 5px 5px;
+        text-align: center;
+        
+    }
+   
+}
