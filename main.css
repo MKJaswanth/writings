@@ -26,15 +26,32 @@ div.poem1{
     position:absolute;
     top:100px;
     background-color: blanchedalmond;
-    right: 10% auto;
-    left :10% auto;
+    right: 10%;
+    left :10% ;
     border-radius: 8px;
     text-align:justify;
-    color: rgb(89, 149, 240);
-    text-decoration: solid;
-    text-size-adjust: 5px;
-    width:70vh ;
-    height:55vh;
+    color: rgb(245, 238, 238);
+    font-size: 13px;
+    width:75vh ;
+    height:65vh;
+
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                    url('images/pexels-anastasia-shuraeva-7539495.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    padding: 20px;  
+    font-family: 'Tangerine', serif;
+    text-shadow: 4px 4px 4px #aaa;
+    font-style: italic;
+    
+
+    
+}
+.poem1_title{
+    text-align: center;
+    font-weight: 100;
 }
 button.heart{
     background-color: rgb(129, 221, 190);
@@ -42,27 +59,27 @@ button.heart{
     border-radius: 5px;
     border: none;
     display: flex;
+    margin-top: 45px;
 }
 button.heart:hover{
     background-color: rgb(136, 195, 230); 
 }
 button.cmt{
     background-color: rgb(226, 109, 125);
-    position: inherit;
+    position: relative;
     display: flex;
 }
 .copy{
+    display: flex; 
+}
+.copy-btn{
+    background-color: salmon;
+    border-radius: 10px;
+    border: none;
     display: flex;
-    .copy-btn{
-        background-color: salmon;
-        border-radius: 10px;
-        border: none;
-        display: flex;
-        cursor: pointer;
-        padding: 1px 5px;
-        margin: 5px 5px;
-        text-align: center;
-        
-    }
-   
+    cursor: pointer;
+    padding: 1px 5px;
+    margin: 5px 5px;
+    text-align: center;
+    
 }
