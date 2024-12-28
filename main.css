@@ -1,85 +1,111 @@
-h3.about{
-    right: 20px;
-    top:20px;
-    cursor: pointer;
-    position: absolute;
-    border-color:aqua;
-    border-radius: 5px;
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-    display: inline-block;
+}
+nav {
+    display: flex;
+    justify-content: flex-end; /* Align links to the right */
+    gap: 10px; /* Add spacing between links */
+    margin: 10px;
     padding: 10px 20px;
-    font-size: 1.2em;
-    color:black;
-    background-color: azure;
-    border: none;
-    text-align: center;
-    transition: background-color 0.3s ease;
+    background-color: #0f1111;
+    border-radius: 5px;
 }
-h3.about:hover{
-    background-color: blueviolet;
+.actions{
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
-h3.about:focus{
-    outline: 2px solid #ffcc00;
+.about {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+.about:hover {
+    color: black;
+    background-color: white;
 }
-div.poem1{
-    position:absolute;
-    top:100px;
+.poem1 {
+    margin: 20px auto;
     background-color: blanchedalmond;
-    right: 10%;
-    left :10% ;
     border-radius: 8px;
-    text-align:justify;
+    text-align: justify;
     color: rgb(245, 238, 238);
-    font-size: 13px;
-    width:75vh ;
-    height:65vh;
-
+    font-size: 1rem; /* Use relative units for font sizes */
+    max-width: 90%; /* Responsive width */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                    url('images/pexels-anastasia-shuraeva-7539495.jpg');
+        url('images/pexels-anastasia-shuraeva-7539495.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    display: block;
-    padding: 20px;  
+    padding: 20px;
     font-family: 'Tangerine', serif;
     text-shadow: 4px 4px 4px #aaa;
     font-style: italic;
-    
-
-    
 }
 .poem1_title{
     text-align: center;
-    font-weight: 100;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
-button.heart{
+button{
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: flex-end; /* Align links to the right */
+    gap: 10px; 
+}
+button.heart {
     background-color: rgb(129, 221, 190);
     color: rgb(20, 19, 19);
-    border-radius: 5px;
-    border: none;
-    display: flex;
-    margin-top: 45px;
 }
 button.heart:hover{
     background-color: rgb(136, 195, 230); 
 }
-button.cmt{
+button.cmt {
     background-color: rgb(226, 109, 125);
-    position: relative;
-    display: flex;
+    color: white;
 }
-.copy{
-    display: flex; 
+
+button.cmt:hover {
+    background-color: rgb(200, 90, 110);
 }
-.copy-btn{
+button.copy-btn {
     background-color: salmon;
-    border-radius: 10px;
-    border: none;
-    display: flex;
-    cursor: pointer;
-    padding: 1px 5px;
-    margin: 5px 5px;
-    text-align: center;
-    
+    color: white;
+}
+button.copy-btn:hover {
+    background-color: darksalmon;
+}
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+    }
+
+    .poem1 {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+
+    .poem1_title {
+        font-size: 1rem;
+    }
 }

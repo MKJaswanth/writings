@@ -4,75 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!--<link href="style.css" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
-    <link rel="stylesheet" href="main.css"> 
-
-</head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/read.png" type="icon">
+</head> 
 <body>
-    <h3 class="about" onclick="alert('clicked')">About</h3>
-    <div class="poem1"><pre class="poem">
-        <pre class="poem1_title" style="align-items: center; ">Nothing</pre>
-        Hurts the one who loves you through pain
-        and despair;
-        Left me wandering,like a traveler
-        stripped bare.
-        Dreams once shared, now scattered and 
-        torn;
-        A path of regret where love was sworn.
+    <nav>
+        <a href="about.html" class="about">About</a>
+        <a href="contact.html" class="about">Contact Us</a>
+        <a href="contact.html" class="about">Services</a>
+    </nav>
 
-        How can I hate you when its me I 
-        despise,
-        for the hurt i Caused, for the endless
-        lies?
-        Too close to hold,yet too far to reach,
-        A lesson of love that time cannot teach.
+    <div class="poem1">
+        <pre class="poem1_title">Nothing</pre>
+        <pre class="poem">
+Hurts the one who loves you through pain
+and despair;
+Left me wandering, like a traveler
+stripped bare.
+Dreams once shared, now scattered and
+torn;
+A path of regret where love was sworn.
 
-        Through the distance grows and the pain 
-        feels near;
-        I drown in silence, bound by fear.
-        if our love is a curse,then let me fall,
-        for in your gaze, I've lost it all
+How can I hate you when it’s me I
+despise,
+for the hurt I caused, for the endless
+lies?
+Too close to hold, yet too far to reach,
+A lesson of love that time cannot teach.
+
+Through the distance grows and the pain
+feels near;
+I drown in silence, bound by fear.
+If our love is a curse, then let me fall,
+for in your gaze, I’ve lost it all
 
                                   -Unknown
         </pre>
-        <div class="likes">
+        
+        <div class="actions">
             <button class="heart" onclick="toggleLike(this)">
-            <span class="like">❤️</span>Like
+                <span class="like">🤍</span> Like
             </button>
-            <div class="copy">
-            <button class="copy-btn">
-                <span class="copy-icon bx bx-copy">copy</span>
-            </button>
-            </div>
-        </div>
-        <div class="comments">
+
             <button class="cmt" onclick="addComment()">
                 Comment
             </button>
+
+            <button class="copy-btn">
+                Copy
+            </button>
         </div>
     </div>
-<script>
-    function toggleLike(button){
-        button.classList.toggle("liked");
 
-        if (button.classList.contains("liked")){
-            button.querySelector(".like").textContent = "❤️";
-
-        } else {
-            button.querySelector(".like").textContent = "🤍";
+    <script>
+        function toggleLike(button) {
+            button.classList.toggle("liked");
+            if (button.classList.contains("liked")) {
+                button.querySelector(".like").textContent = "❤️";
+            } else {
+                button.querySelector(".like").textContent = "🤍";
+            }
         }
-    }
-    document.querySelector(".copy-btn").addEventListener("click", ()=>{
-        const poem  = document.querySelector(".poem");
-        navigator.clipboard.writeText(poem.textContent).then(()=>{
-            alert("copied");
-        }).catch(err => {
-                console.error("Failed to copy text: ", err);
-            });
 
-    });
-    
-</script>
+        document.querySelector(".copy-btn").addEventListener("click", () => {
+            const poem = document.querySelector(".poem");
+            navigator.clipboard.writeText(poem.textContent)
+                .then(() => {
+                    alert("Copied to clipboard");
+                })
+                .catch(err => {
+                    console.error("Failed to copy text: ", err);
+                });
+        });
+    </script>
 </body>
-</html> 
+</html>
