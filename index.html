@@ -43,30 +43,29 @@ for in your gaze, I’ve lost it all
         </pre>
         
         <div class="actions">
-            <button class="heart" onclick="toggleLike(this)">
-                <span class="like">🤍</span> Like
+            <button class="heart" onclick="toggleLike(this)" id="likeButton">
+                ❤️ Like <span id="like_count">0</span>
             </button>
+            <button class="cmt" onclick="showCommentInput()">Comment</button>
+            <button class="copy-btn">Copy</button>
+        </div>
 
-            <button class="cmt" onclick="addComment()">
-                Comment
-            </button>
-
-            <button class="copy-btn">
-                Copy
-            </button>
+        <div class="comment-section">
+            <h3>Comments</h3>
+            <div id="commentdisplay"></div> <!-- Display comments here -->
+            <div id="commentInputContainer" style="display: none;">
+                <button onclick="closeCommentInput()" class="close-btn">✖ Close</button>
+                <textarea id="commentinput" placeholder="Write a comment..." rows="2"></textarea>
+                <button onclick="submitComment()">Post</button>
+            </div>
         </div>
     </div>
 
-    <script>
-        function toggleLike(button) {
-            button.classList.toggle("liked");
-            if (button.classList.contains("liked")) {
-                button.querySelector(".like").textContent = "❤️";
-            } else {
-                button.querySelector(".like").textContent = "🤍";
-            }
-        }
+    <footer>
+        <p>&copy; 2024 Jaswanth's Poetry. All Rights Reserved.</p>
+    </footer>
 
+    <script>
         document.querySelector(".copy-btn").addEventListener("click", () => {
             const poem = document.querySelector(".poem");
             navigator.clipboard.writeText(poem.textContent)
@@ -77,6 +76,40 @@ for in your gaze, I’ve lost it all
                     console.error("Failed to copy text: ", err);
                 });
         });
+
+        function toggleLike(button) {
+            const likeCountSpan = document.getElementById("like_count");
+            const isLiked = button.classList.toggle("liked");
+            likeCountSpan.textContent = isLiked ? +likeCountSpan.textContent + 1 : +likeCountSpan.textContent - 1;
+            button.innerHTML = isLiked ? '❤️ Liked <span id="like_count">' + likeCountSpan.textContent + '</span>' : '♡ Like <span id="like_count">' + likeCountSpan.textContent + '</span>';
+        }
+
+        function showCommentInput() {
+            const commentInputContainer = document.getElementById("commentInputContainer");
+            commentInputContainer.style.display = "block"; // Show the textarea and post button
+        }
+
+        function submitComment() {
+            const commentInput = document.getElementById("commentinput");
+            const commentDisplay = document.getElementById("commentdisplay");
+
+            if (commentInput.value.trim() === "") {
+                alert("Please write a comment!");
+                return;
+            }
+
+            const newComment = document.createElement("div");
+            newComment.classList.add("comment");
+            newComment.textContent = commentInput.value;
+            commentDisplay.appendChild(newComment);
+
+            commentInput.value = ""; // Clear the input after posting
+        }
+
+        function closeCommentInput() {
+            const commentInputContainer = document.getElementById("commentInputContainer");
+            commentInputContainer.style.display = "none"; // Hide the textarea and post button
+        }
     </script>
 </body>
 </html>
