@@ -1,9 +1,9 @@
-<<<<<<< HEAD
 body{
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
+    background-color: black;
 }
 nav {
     display: flex;
@@ -52,6 +52,11 @@ nav {
     font-family: 'Tangerine', serif;
     text-shadow: 4px 4px 4px #aaa;
     font-style: italic;
+}
+.signup{
+    background-color:beige;
+    color: white;
+    
 }
 .poem1_title{
     text-align: center;
@@ -110,7 +115,6 @@ button.copy-btn:hover {
         font-size: 1rem;
     }
 }
-=======
 body {
     margin: 0;
     padding: 0;
@@ -276,4 +280,62 @@ textarea#commentinput {
 .close-btn:hover {
     text-decoration: underline; /* Add underline on hover for better UX */
     }
->>>>>>> 80168e1 (changes2)
+    .registration-section {
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 400px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .registration-section h2 {
+        text-align: center;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    .registration-section form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .registration-section label {
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+    }
+    
+    .registration-section input {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    .registration-section button {
+        padding: 10px 15px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+        text-align: center;
+    }
+    
+    .registration-section button:hover {
+        background-color: #45a049;
+    }
+    button.register-btn{
+        text-align: center;
+        color: thistle;
+
+    }
+footer{
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}  

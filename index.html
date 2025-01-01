@@ -6,6 +6,7 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="server.js"></script>
     <link rel="icon" href="images/read.png" type="icon">
 </head> 
 <body>
@@ -14,6 +15,25 @@
         <a href="contact.html" class="about">Contact Us</a>
         <a href="contact.html" class="about">Services</a>
     </nav>
+    <div class="signup">Sign Up
+    <div class="registration-section">
+
+        <h2>Register</h2>
+        <form action="http://localhost:3000/register" method="POST">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+    </div>
+</div>
+    
 
     <div class="poem1">
         <pre class="poem1_title">Nothing</pre>
