@@ -18,8 +18,7 @@ nav {
     justify-content: center;
     display: flex;
     gap: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap;
+    margin-top: 10px;
 }
 .about {
     background-color: black;
@@ -30,29 +29,92 @@ nav {
     font-family: Georgia, 'Times New Roman', serif;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+div.signup{
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: black;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    color: white;/* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #e41414;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .about:hover {
     color: black;
     background-color: white;
 }
-.poem1 {
-    margin: 20px auto;
-    background-color: blanchedalmond;
-    border-radius: 8px;
-    text-align: justify;
-    color: rgb(245, 238, 238);
-    font-size: 1rem; /* Use relative units for font sizes */
-    max-width: 90%; /* Responsive width */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-        url('images/pexels-anastasia-shuraeva-7539495.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 20px;
+.poem-container {
+    background-color:black;
+    display: flex;
+    justify-content: space-between; /* Ensure space between the poems */
+    align-items: flex-start; /* Align poems to the top */
+    gap: 20px; /* Add spacing between poems */
+    flex-wrap: wrap; /* Ensure responsive design for smaller screens */
+    margin: 20px;
     font-family: 'Tangerine', serif;
     text-shadow: 4px 4px 4px #aaa;
     font-style: italic;
 }
+.poem1, .poem2 {
+    flex: 1 1 calc(50% - 20px); /* Each poem takes 50% of the width minus gap */
+    max-width: 45%; /* Prevent overflow */
+    background-color: blanchedalmond;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: justify;
+    color: rgb(245, 238, 238);
+    font-size: 1rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('images/pexels-anastasia-shuraeva-7539495.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    font-family: 'Tangerine', serif;
+    text-shadow: 4px 4px 4px #aaa;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .poem1, .poem2 {
+        flex: 1 1 100%; /* Stack poems vertically on smaller screens */
+        max-width: 100%; /* Ensure they take full width */
+    }
+}
+
 .signup{
     background-color:beige;
     color: white;
@@ -66,27 +128,30 @@ nav {
 }
 button{
     padding: 10px 15px;
-    margin: 5px;
     border: none;
     border-radius: 5px;
     font-family: Arial, sans-serif;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.3s ease;
-    display: flex;
-    justify-content: flex-end; /* Align links to the right */
-    gap: 10px; 
 }
 button.heart {
     background-color: rgb(129, 221, 190);
     color: rgb(20, 19, 19);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
 }
 button.heart:hover{
     background-color: rgb(136, 195, 230); 
 }
 button.cmt {
-    background-color: rgb(226, 109, 125);
-    color: white;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    color: black;
 }
 
 button.cmt:hover {
@@ -115,129 +180,19 @@ button.copy-btn:hover {
         font-size: 1rem;
     }
 }
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
+@media (max-width: 768px) {
+    .poem1, .poem2 {
+        flex: 1 1 100%; /* Stack poems vertically on smaller screens */
+        max-width: 100%;
+    }
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #0f1111;
-    border-radius: 5px;
-}
 
 .author-name {
     font-family: 'Tangerine', cursive;
     font-size: 2rem;
     color: #ffffff;
 }
-
-.nav-links {
-    display: flex;
-    gap: 15px;
-}
-
-.about {
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-family: Georgia, 'Times New Roman', serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.about:hover {
-    color: black;
-    background-color: white;
-}
-
-.actions {
-    display: flex;
-    justify-content: flex-start; /* Align buttons to the left */
-    align-items: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-family: Arial, sans-serif;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-button.heart {
-    background-color: rgb(129, 221, 190);
-    color: rgb(20, 19, 19);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-button.heart.liked {
-    background-color: rgb(255, 77, 77);
-    color: white;
-}
-
-button.cmt {
-    background-color: rgb(226, 109, 125);
-    color: white;
-}
-
-button.cmt:hover {
-    background-color: rgb(200, 90, 110);
-}
-
-button.copy-btn {
-    background-color: salmon;
-    color: white;
-}
-
-button.copy-btn:hover {
-    background-color: darksalmon;
-}
-
-.poem1 {
-    margin: 20px auto;
-    background-color: blanchedalmond;
-    border-radius: 8px;
-    text-align: justify;
-    color: rgb(245, 238, 238);
-    font-size: 1rem;
-    max-width: 90%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/pexels-anastasia-shuraeva-7539495.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 20px;
-    font-family: 'Tangerine', serif;
-    text-shadow: 4px 4px 4px #aaa;
-    font-style: italic;
-}
-
-.poem {
-    text-align: center;
-    font-family: 'Tangerine', serif, Arial;
-    font-weight: 400;
-    font-size: 35px;
-}
-
-.poem1_title {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
 .comment-section {
     margin-top: 20px;
     padding: 15px;

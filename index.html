@@ -6,7 +6,6 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="server.js"></script>
     <link rel="icon" href="images/read.png" type="icon">
 </head> 
 <body>
@@ -15,26 +14,28 @@
         <a href="contact.html" class="about">Contact Us</a>
         <a href="contact.html" class="about">Services</a>
     </nav>
-    <div class="signup">Sign Up
-    <div class="registration-section">
-
-        <h2>Register</h2>
-        <form action="http://localhost:3000/register" method="POST">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" required><br><br>
-            
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-            
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required><br><br>
-            
-            <button type="submit" class="register-btn">Register</button>
-        </form>
+    <div class="signup" onclick="openModal()">Sign Up</div>
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Register</h2>
+            <form id="registrationForm">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required><br><br>
+                
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                
+                <button type="submit" class="register-btn">Register</button>
+            </form>
+        </div>
     </div>
-</div>
     
-
+<div class="poem-container">
     <div class="poem1">
         <pre class="poem1_title">Nothing</pre>
         <pre class="poem">
@@ -45,23 +46,19 @@ stripped bare.
 Dreams once shared, now scattered and
 torn;
 A path of regret where love was sworn.
-
 How can I hate you when it’s me I
 despise,
 for the hurt I caused, for the endless
 lies?
 Too close to hold, yet too far to reach,
 A lesson of love that time cannot teach.
-
 Through the distance grows and the pain
 feels near;
 I drown in silence, bound by fear.
 If our love is a curse, then let me fall,
 for in your gaze, I’ve lost it all
-
-                                  -Unknown
+                              -Unknown
         </pre>
-        
         <div class="actions">
             <button class="heart" onclick="toggleLike(this)" id="likeButton">
                 ❤️ Like <span id="like_count">0</span>
@@ -69,7 +66,6 @@ for in your gaze, I’ve lost it all
             <button class="cmt" onclick="showCommentInput()">Comment</button>
             <button class="copy-btn">Copy</button>
         </div>
-
         <div class="comment-section">
             <h3>Comments</h3>
             <div id="commentdisplay"></div> <!-- Display comments here -->
@@ -78,13 +74,42 @@ for in your gaze, I’ve lost it all
                 <textarea id="commentinput" placeholder="Write a comment..." rows="2"></textarea>
                 <button onclick="submitComment()">Post</button>
             </div>
-        </div>
+            </div>
     </div>
-
+    <div class="poem2">
+        <pre class="poem1_title">Nothing2</pre>
+        <pre class="poem">
+What I want and what I had 
+Nothing makes sense; nothing feels right.
+Dreams feel real; truth won't heal.
+Silences were loud; still can't be headed by none.
+Battle of the unseen, which is never won.
+No future to hold, yet my past yarns
+A fragile hope in this vast vain..
+                                  -Unknown
+        </pre>
+        <div class="actions">
+            <button class="heart" onclick="toggleLike(this)" id="likeButton">
+                ❤️ Like <span id="like_count">0</span>
+            </button>
+            <button class="cmt" onclick="showCommentInput()">Comment</button>
+            <button class="copy-btn">Copy</button>
+        </div>
+        <div class="comment-section">
+            <h3>Comments</h3>
+            <div id="commentdisplay"></div> <!-- Display comments here -->
+            <div id="commentInputContainer" style="display: none;">
+                <button onclick="closeCommentInput()" class="close-btn">✖ Close</button>
+                <textarea id="commentinput" placeholder="Write a comment..." rows="2"></textarea>
+                <button onclick="submitComment()">Post</button>
+            </div>
+            </div>
+    </div>
+</div>
+        
     <footer>
         <p>&copy; 2024 Jaswanth's Poetry. All Rights Reserved.</p>
     </footer>
-
     <script>
         document.querySelector(".copy-btn").addEventListener("click", () => {
             const poem = document.querySelector(".poem");
@@ -112,17 +137,14 @@ for in your gaze, I’ve lost it all
         function submitComment() {
             const commentInput = document.getElementById("commentinput");
             const commentDisplay = document.getElementById("commentdisplay");
-
             if (commentInput.value.trim() === "") {
                 alert("Please write a comment!");
                 return;
             }
-
             const newComment = document.createElement("div");
             newComment.classList.add("comment");
             newComment.textContent = commentInput.value;
             commentDisplay.appendChild(newComment);
-
             commentInput.value = ""; // Clear the input after posting
         }
 
@@ -130,6 +152,51 @@ for in your gaze, I’ve lost it all
             const commentInputContainer = document.getElementById("commentInputContainer");
             commentInputContainer.style.display = "none"; // Hide the textarea and post button
         }
+
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("registrationModal").style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("registrationModal").style.display = "none";
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById("registrationModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Handle form submission using fetch
+        document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            // Collect form data
+            const formData = {
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+
+            try {
+                // Send data to the backend
+                const response = await fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                alert(result.message || result.error); // Show success or error message
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
     </script>
 </body>
 </html>
