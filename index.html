@@ -184,8 +184,8 @@ A fragile hope in this vast vain..
 
             try {
                 // Send data to the backend
-                const response = await fetch('https://mkjaswanth.github.io/writings/', {
-                    method: 'POST',
+                const response = await fetch('http://localhost:3000/register', {
+                    method: 'POST', 
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
                 });

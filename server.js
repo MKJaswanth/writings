@@ -7,14 +7,10 @@ const cors = require('cors');
 const app = express();
 
 // Middleware
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors({
-    origin: ['https://mkjaswanth.github.io/writings/', 'http://localhost:3000'],
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type']
-}));
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
