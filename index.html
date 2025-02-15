@@ -184,7 +184,7 @@ A fragile hope in this vast vain..
 
             try {
                 // Send data to the backend
-                const response = await fetch('https://writings-gray.vercel.app/', {
+                const response = await fetch('https://writings-gray.vercel.app/api/register', {
                     method: 'POST', 
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
@@ -194,6 +194,7 @@ A fragile hope in this vast vain..
                 alert(result.message || result.error); // Show success or error message
             } catch (error) {
                 console.error('Error:', error);
+                alert(error)
                 alert('An error occurred. Please try again.');
             }
         });
